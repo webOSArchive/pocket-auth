@@ -16,6 +16,7 @@ if (isset($_SESSION["attempts"])) {
 }
 $docRoot="../";
 include ($docRoot . "config.php");
+include ($docRoot . "common.php");
 echo file_get_contents("https://www.webosarchive.org/app-template/header.php?docRoot=" . $docRoot . "&appTitle=" . $appTitle . "&protocol=" . findProtocol());
 ?>
 <?php
