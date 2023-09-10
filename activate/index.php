@@ -16,7 +16,7 @@ if (isset($_SESSION["attempts"])) {
 }
 $docRoot="../";
 include ($docRoot . "config.php");
-echo file_get_contents("https://www.webosarchive.org/app-template/header.php?docRoot=" . $docRoot . "&appTitle=" . $appTitle);
+echo file_get_contents("https://www.webosarchive.org/app-template/header.php?docRoot=" . $docRoot . "&appTitle=" . $appTitle . "&protocol=" . findProtocol());
 ?>
 <?php
     if ($_SESSION["attempts"] <= $maxAttempts) {

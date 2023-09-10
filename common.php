@@ -4,6 +4,14 @@ error_reporting(E_ALL);
 ini_set('display_errors', '1');
 const NEWLINE = '<br /><br />';
 
+function findProtocol() {
+    if(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on')
+        $protocol = "https";
+    else
+        $protocol = "http";
+    return $protocol;
+}
+
 function findHostRoot() {
     if(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on')
         $protocol = "https://";
@@ -26,7 +34,7 @@ function debugEcho($msg) {
 function diePretty($msg) {
     global $docRoot;
     global $appTitle;
-    echo file_get_contents("https://www.webosarchive.org/app-template/header.php?docRoot=" . $docRoot . "&appTitle=" . $appTitle);
+    echo file_get_contents("https://www.webosarchive.org/app-template/header.php?docRoot=" . $docRoot . "&appTitle=" . $appTitle . "&protocol=" . findProtocol());
     echo "<p align='center'><b>Error</b>: " . $msg . "</p>";
     include ($docRoot . "inc/footer.php");
 }
@@ -34,7 +42,7 @@ function diePretty($msg) {
 function succeedPretty($msg) {
     global $docRoot;
     global $appTitle;
-    echo file_get_contents("https://www.webosarchive.org/app-template/header.php?docRoot=" . $docRoot . "&appTitle=" . $appTitle);
+    echo file_get_contents("https://www.webosarchive.org/app-template/header.php?docRoot=" . $docRoot . "&appTitle=" . $appTitle . "&protocol=" . findProtocol());
     echo "<p align='center'>" . $msg . "</p>";
     include ($docRoot . "inc/footer.php");
 }
