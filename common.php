@@ -27,7 +27,7 @@ function diePretty($msg) {
     global $docRoot;
     global $appTitle;
     include ($docRoot . "inc/header.php");
-    echo "<p align='center'><b>Error</b>:" . $msg . "</p>";
+    echo "<p align='center'><b>Error</b>: " . $msg . "</p>";
     include ($docRoot . "inc/footer.php");
 }
 

@@ -18,25 +18,23 @@ $docRoot="../";
 include ($docRoot . "config.php");
 include ($docRoot . "inc/header.php");
 ?>
-<html>
-<head>
-<title>Pocket for webOS Activation</title>
-</head>
-<body>
-    <?php
-        if ($_SESSION["attempts"] <= $maxAttempts) {
-    ?>
-    <div align="center">
-        <form action="../pocket-auth-1.php" method="POST">
-            <b>Enter the activation code from your webOS device</b>
-            <p><input type="text" name="activationCode" id="activationCode"></p>
-            <p><input type="submit" name="btnPocketAuth" id="btnPocketAuth" value="Login to Pocket"></p>
-        </form>
-    </div>
-    <?php
-        } else {
-            echo "<p align='middle'>Too many attempts (" . $_SESSION["attempts"] . "/" . $maxAttempts . ") Try again later!</p>";
-        }
-    ?>
-</body>
-</html>
+<?php
+    if ($_SESSION["attempts"] <= $maxAttempts) {
+?>
+<script>
+window.addEventListener('load', function() {
+    document.getElementById("activationCode").focus();
+});
+</script>
+<div align="center">
+    <form action="../pocket-auth-1.php" method="POST">
+        <b>Enter the activation code from your webOS device</b>
+        <p><input type="text" name="activationCode" id="activationCode" style="text-align: center;font-size:larger;"></p>
+        <p><input type="submit" name="btnPocketAuth" id="btnPocketAuth" value="Login to Pocket"></p>
+    </form>
+</div>
+<?php
+    } else {
+        echo "<p align='middle'>Too many attempts (" . $_SESSION["attempts"] . "/" . $maxAttempts . ") Try again later!</p>";
+    }
+?>
