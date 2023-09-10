@@ -36,6 +36,6 @@ if (isset($_POST["activationCode"])) {
     diePretty("Unknown activation code provided!<br>Get a code from your webOS device, then <a href='activate/index.php'>Try Again</a>");
   }
 } else {
-  diePretty("No Activation code provided!<br>Get a code from your webOS device, then <a href='activate/index.php'>Try Again</a>");
+  diePretty("No Activation code provided!<br>Get a code from your webOS device, then <a href='activate/'>Try Again</a>");
 }
 ?>
