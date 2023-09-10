@@ -31,7 +31,7 @@ window.addEventListener('load', function() {
     <form action="../pocket-auth-1.php" method="POST">
         <b>Enter the activation code from your webOS device</b>
         <p><input type="text" name="activationCode" id="activationCode" style="text-align: center;font-size: larger;text-transform: uppercase;"></p>
-        <p><input type="submit" name="btnPocketAuth" id="btnPocketAuth" value="Login to Pocket"></p>
+        <p><input type="submit" name="btnPocketAuth" id="btnPocketAuth" value="Login to Pocket" style="font-size: medium;"></p>
     </form>
 </div>
 <?php
