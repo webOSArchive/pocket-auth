@@ -28,6 +28,13 @@ window.addEventListener('load', function() {
 });
 </script>
 <div align="center">
+    <?php
+    //Show appropriate instructions for platform
+    $client = strtolower($_SERVER['HTTP_USER_AGENT']);
+    if (strpos($client, "hpwos") || strpos($client, "webos")) {
+        echo "Welcome webOS User! Unfortunately, you cannot complete Pocket auth on your device. Please visit this site from a modern browser!";
+    } 
+    ?>
     <form action="../pocket-auth-1.php" method="POST">
         <b>Enter the activation code from your webOS device</b>
         <p><input type="text" name="activationCode" id="activationCode" style="text-align: center;font-size: larger;text-transform: uppercase;"></p>
