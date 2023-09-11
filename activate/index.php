@@ -20,7 +20,7 @@ include ($docRoot . "common.php");
 echo file_get_contents("https://www.webosarchive.org/app-template/header.php?docRoot=" . $docRoot . "&appTitle=" . $appTitle . "&protocol=" . findProtocol());
 ?>
 <?php
-    if ($_SESSION["attempts"] <= $maxAttempts) {
+if ($_SESSION["attempts"] <= $maxAttempts) {
 ?>
 <script>
 window.addEventListener('load', function() {
@@ -33,7 +33,7 @@ window.addEventListener('load', function() {
     $client = strtolower($_SERVER['HTTP_USER_AGENT']);
     if (strpos($client, "hpwos") || strpos($client, "webos")) {
         echo "Welcome webOS User! Unfortunately, you cannot complete Pocket auth on your device. Please visit this site from a modern browser!";
-    } 
+    } else {
     ?>
     <form action="../pocket-auth-1.php" method="POST">
         <b>Enter the activation code from your webOS device</b>
@@ -42,7 +42,8 @@ window.addEventListener('load', function() {
     </form>
 </div>
 <?php
-    } else {
-        echo "<p align='middle'>Too many attempts (" . $_SESSION["attempts"] . "/" . $maxAttempts . ") Try again later!</p>";
     }
+} else {
+    echo "<p align='middle'>Too many attempts (" . $_SESSION["attempts"] . "/" . $maxAttempts . ") Try again later!</p>";
+}
 ?>
