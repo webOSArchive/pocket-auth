@@ -32,7 +32,7 @@ window.addEventListener('load', function() {
     //Show appropriate instructions for platform
     $client = strtolower($_SERVER['HTTP_USER_AGENT']);
     if (strpos($client, "hpwos") || strpos($client, "webos")) {
-        echo "Welcome webOS User! Unfortunately, you cannot complete Pocket auth on your device. Please visit this site from a modern browser!";
+        echo "Welcome webOS User! Unfortunately, you cannot complete Pocket authorization on your device.<br>Please visit this site from a modern browser!";
     } else {
     ?>
     <form action="../pocket-auth-1.php" method="POST">
