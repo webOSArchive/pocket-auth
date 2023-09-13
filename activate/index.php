@@ -9,9 +9,7 @@ if (isset($_SESSION['discard_after']) && $now > $_SESSION['discard_after']) {
 // either new or old, it should live at most for 30 minutes
 $_SESSION['discard_after'] = $now + 1800;
 
-if (isset($_SESSION["attempts"])) {
-    $_SESSION["attempts"] = $_SESSION["attempts"] + 1;
-} else {
+if (!isset($_SESSION["attempts"])) {
     $_SESSION["attempts"] = 0;
 }
 $docRoot="../";

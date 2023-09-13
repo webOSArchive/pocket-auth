@@ -32,10 +32,20 @@ if (isset($_POST["activationCode"])) {
     }
 
   } else {
+    countAttempt();
     error_log("Pocket auth service could not find requested activation code cache file at: " . $cachePath . $useCode . ".json");
     diePretty("Unknown activation code provided!<br>Get a code from your webOS device, then <a href='activate/index.php'>Try Again</a>");
   }
 } else {
+  countAttempt();
   diePretty("No Activation code provided!<br>Get a code from your webOS device, then <a href='activate/'>Try Again</a>");
+}
+
+function countAttempt() {
+  if (isset($_SESSION["attempts"])) {
+    $_SESSION["attempts"] = $_SESSION["attempts"] + 1;
+  } else {
+      $_SESSION["attempts"] = 0;
+  }
 }
 ?>
